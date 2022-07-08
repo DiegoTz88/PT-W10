@@ -1,0 +1,24 @@
+import java.sql.*;
+import java.util.Scanner;
+
+public class NFLTester {
+
+	public static void main(String[] args) {
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Welcome to the database access Panel.\n"
+				+ "Please enter your username");
+		String username = kb.nextLine();
+		System.out.println("Please enter your password");
+		String pw = kb.nextLine();
+		
+
+		String DBConn = "jdbc:mysql://localhost:3306/employees";
+		try {
+			Connection access = DriverManager.getConnection(DBConn, username, pw);
+		} catch(SQLException e) {
+			System.out.println("Access denied");
+			e.printStackTrace();
+		}
+	}
+
+}

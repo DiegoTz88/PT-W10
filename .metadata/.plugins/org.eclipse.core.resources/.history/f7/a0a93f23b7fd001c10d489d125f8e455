@@ -1,0 +1,12 @@
+package entity;
+
+public class Food {
+
+	private int foodId;
+	private String name;
+	
+	public Food(int foodId, String name) {
+		this.foodId = foodId;
+		this.name = name;
+	}
+}

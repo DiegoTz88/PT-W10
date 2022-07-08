@@ -1,0 +1,32 @@
+package application;
+
+import java.util.Scanner;
+
+public class Menu {
+	
+	private Scanner scanner = new Scanner(Systemin);
+	
+	public void start() {
+		String selection = "";
+		
+		do {
+			printMenu();
+			selection = scanner.nextLine();
+			
+			if(selection.equals("1")) {
+				displayTeams();
+			} else if(selection.equals("2")) {
+				displayTeam();
+			} else if(selection.equals("3")) {
+				createTeam();
+			} else if(selection.equals("4")) {
+				deleteTeam();
+			} else if(selection.equals("5")) {
+				createMember();
+			} else if(selection.equals("6")) {
+				deleteMember();
+			}
+			
+		} while (selection.equals("-1"));
+	}
+}

@@ -1,0 +1,39 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import entity.Member;
+
+public class MemberDao {
+	
+	private Connection connection;
+	private final String GET_MEMBERS_BY_TEAM_ID_QUERY = "SELECT * FROM members WHERE team_id = ?";
+	private final String DELETE_MEMBERS_BY_TEAM_ID_QUERY = "DELETE FROM members WHERE team_id = ?";
+	
+	public MemberDao() {
+		connection = DBConnection.getConnection();
+	}
+
+	public List<Member> getMembersByTeam(int teamId) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement(GET_MEMBERS_BY_TEAM_ID_QUERY);
+		ps.setInt(1, teamId);
+		ResultSet rs = ps.executeQuery();
+		List<Member> members = new ArrayList<Member>();
+		
+		while (rs.next()) {
+			members.add(new Member(rs.getInt(1), rs.getString(2), rs.getString(3)));
+		}
+		return null;
+	}
+	
+	public void deleteMembersByTeamId(int teamId) {
+		PreparedStatement ps = connection.preparedStatement(DELETE_MEMBER_BY_TEAM_ID_QUERY);
+		ps.setInt(1, teamId);
+	}
+
+}

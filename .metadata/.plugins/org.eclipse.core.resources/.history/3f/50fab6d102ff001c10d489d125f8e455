@@ -1,0 +1,33 @@
+package application;
+
+import java.sql.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+import dao.FoodDao;
+import entity.Food;
+
+public class Menu {
+
+	private FoodDao foodDao = new FoodDao();
+	private Scanner scanner = new Scanner(System.in);
+	
+	private List<String> options = Arrays.asList(
+			"Display Foods",
+			"Create Food",
+			"Delete Food");
+	
+	public void start() {
+		String selection = "";
+		
+		do {
+			printMenu();
+			selection = scanner.nextLine();
+			
+			try{
+				
+			}
+		}
+	}
+}
